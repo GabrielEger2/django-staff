@@ -2,5 +2,21 @@
 
 {% block main %}
     <h1>Index</h1>
+    <h1> Olá {{ user.employee.name }}</h1>
+
+    <button>
+        <a href="{% url 'logout' %}">
+            LogOut
+        </a>
+    </button>
+    {% if user.employee.company %}
+        <button>
+            <a href="">Edit Company</a>
+        </button>
+    {% else %}
+        <button>
+            <a href="">Create Company</a>
+        </button>
+    {% endif %}
     <p>Welcome to the index page!</p>
 {% endblock %}
