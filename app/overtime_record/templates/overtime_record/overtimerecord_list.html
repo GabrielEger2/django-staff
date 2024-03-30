@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h1>Overtime Record List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Date</th>
+                <th>Hours</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for overtime_record in object_list %}
+                <tr>
+                    <td>{{ overtime_record.employee }}</td>
+                    <td>{{ overtime_record.date }}</td>
+                    <td>{{ overtime_record.hours }}</td>
+                    <td>
+                        <button>
+                            <a href="{% url 'overtime_record_update' overtime_record.id %}">Edit</a>
+                        </button>
+                        <button>
+                            <a href="{% url 'overtime_record_delete' overtime_record.id %}">Delete</a>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <button>
+            <a href="{% url 'overtime_record_create' %}">Create Overtime Record</a>
+        </button>
+    </table>
+{% endblock %}

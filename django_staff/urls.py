@@ -10,4 +10,5 @@ urlpatterns = [
     path('companies/', include('app.companies.urls')),
     path('departments/', include('app.departments.urls')),
     path('documents/', include('app.documents.urls')),
+    path('overtime-record/', include('app.overtime_record.urls')),
 ]
