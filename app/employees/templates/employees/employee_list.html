@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h1>Employee List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in object_list %}
+                <tr>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.company }}</td>
+                    <td>
+                        <button>
+                            <a href="{% url 'employee_update' employee.id %}">Edit</a>
+                        </button>
+                        <button>
+                            <a href="{% url 'employee_delete' employee.id %}">Delete</a>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <button>
+            <a href="{% url 'employee_create' %}">Create Employee</a>
+        </button>
+    </table>
+{% endblock %}

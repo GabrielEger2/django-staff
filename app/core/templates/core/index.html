@@ -3,7 +3,11 @@
 {% block main %}
     <h1>Index</h1>
     <h1> Olá {{ user.employee.name }}</h1>
-
+    <button>
+        <a href="{% url 'employee_list' %}">
+            Manage Employee
+        </a>
+    </button>
     <button>
         <a href="{% url 'logout' %}">
             LogOut
