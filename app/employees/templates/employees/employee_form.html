@@ -8,4 +8,17 @@
     <button type="submit">Save</button>
 </form>
 
+<button>
+    <a href="{% url 'document_create' object.id %}">
+        Add Document
+    </a>
+</button>
+
+{% for document in object.document_set.all %}
+    <button>
+        <a href="{{ document.file.url }}">
+            {{ document }}
+        </a>
+    </button>
+{% endfor %}
 {% endblock %}
