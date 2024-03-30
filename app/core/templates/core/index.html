@@ -2,10 +2,15 @@
 
 {% block main %}
     <h1>Index</h1>
-    <h1> Olá {{ user.employee.name }}</h1>
+    <h1> Hello {{ user.employee.name }}</h1>
     <button>
         <a href="{% url 'employee_list' %}">
-            Manage Employee
+            Manage Employees
+        </a>
+    </button>
+    <button>
+        <a href="{% url 'department_list' %}">
+            Manage Departments
         </a>
     </button>
     <button>

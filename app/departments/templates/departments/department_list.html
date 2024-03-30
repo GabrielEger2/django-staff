@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h1>Department List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for department in object_list %}
+                <tr>
+                    <td>{{ department.name }}</td>
+                    <td>{{ department.company }}</td>
+                    <td>
+                        <button>
+                            <a href="{% url 'department_update' department.id %}">Edit</a>
+                        </button>
+                        <button>
+                            <a href="{% url 'department_delete' department.id %}">Delete</a>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <button>
+            <a href="{% url 'department_create' %}">Create Department</a>
+        </button>
+    </table>
+{% endblock %}
