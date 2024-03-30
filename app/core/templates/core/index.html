@@ -11,11 +11,11 @@
     </button>
     {% if user.employee.company %}
         <button>
-            <a href="">Edit Company</a>
+            <a href="{% url 'company_update' user.employee.company.id %}">Edit Company</a>
         </button>
     {% else %}
         <button>
-            <a href="">Create Company</a>
+            <a href="{% url 'company_create' %}">Create Company</a>
         </button>
     {% endif %}
     <p>Welcome to the index page!</p>
