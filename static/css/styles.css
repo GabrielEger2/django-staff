@@ -1,0 +1,43 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.section {
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+@media (max-width: 991px) {
+    .section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+.section-top {
+    padding-top: 56px;
+}
+
+.bg-primary-color {
+    background-color: #1245a8;
+}
+
+.bg-secondary-color {
+    background-color: #f8f9fa;
+}
+
+.bg-neutral-color {
+    background-color: #050505;
+}
+
+.text-primary-color {
+    color: #1245a8;
+}
+
+.text-secondary-color {
+    color: #f8f9fa;
+}
+
+.text-neutral-color {
+    color: #050505;
+}
