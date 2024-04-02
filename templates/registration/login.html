@@ -1,9 +1,54 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 
 {% block main %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
+    <style>
+        .login-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+        }
+    </style>
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start login-form">
+        <div class="container">
+            <div class="row gx-lg-5 align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <h1 class="my-5 display-3 fw-bold ls-tight">
+                    Elevate Your HR Team Today: <br />
+                <span class="text-primary">Use Django Staff</span>
+                </h1>
+                <p>
+                    Step into a world where efficiency meets innovation. Sign in 
+                    now to unlock the tools that will elevate your team's performance, 
+                    foster unparalleled collaboration, and pave the way for groundbreaking 
+                    achievements in workplace excellence
+                </p>
+            </div>
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="card">
+                <div class="card-body py-5 px-md-5">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-outline mb-4">
+                            {{ form.username|attr:"class:form-control" }}
+                            <label class="form-label">Username</label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            {{ form.password|attr:"class:form-control" }}
+                            <label class="form-label">Password</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block mb-4 w-100">
+                            Sign up
+                        </button>
+                        <div class="text-center">
+                            <p>Not a member? <a href="">Sign up</a></p>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
 {% endblock %}
