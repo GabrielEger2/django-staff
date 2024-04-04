@@ -12,9 +12,11 @@
     </div>
 
     {% if object %}
-        <a href="{% url 'document_create' object.id %}" class="btn btn-success">
-            Adicionar documento
-        </a>
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'document_create' object.id %}" class="btn btn-success">
+                Add Document
+            </a>
+        </div>
     {% endif %}
 
     {% for document in object.document_set.all %}
