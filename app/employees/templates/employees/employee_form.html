@@ -9,9 +9,7 @@
 </form>
 
 <button>
-    <a href="{% url 'document_create' object.id %}">
-        Add Document
-    </a>
+    {{object}}
 </button>
 
 {% for document in object.document_set.all %}

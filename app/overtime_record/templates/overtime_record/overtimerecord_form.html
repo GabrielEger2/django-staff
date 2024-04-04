@@ -4,7 +4,8 @@
 {% block form_fields %}
     {% csrf_token %}
     <div class="form-outline mb-4">
-        <label class="form-label">Reason:</label>
+        <h1 class="text-center">Over Time Record</h1>
+        <label class="form-label mt-5">Reason:</label>
         {{ form.reason|attr:"class:form-control" }}
         <label class="form-label mt-4">Employee:</label>
         {{ form.employee|attr:"class:form-control" }}

@@ -1,9 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'components/form.html' %}
+{% load widget_tweaks %}
 
-{% block main %}
-<form method="post">
+{% block form_fields %}
     {% csrf_token %}
-    {{ form }}
-    <button type="submit">Save</button>
-</form>
+    <div class="form-outline mb-4">
+        <h1 class="text-center">Company</h1>
+        <label class="form-label mt-5">Name:</label>
+        {{ form.name|attr:"class:form-control" }}
+    </div>
 {% endblock %}

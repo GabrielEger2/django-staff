@@ -4,7 +4,8 @@
 {% block form_fields %}
     {% csrf_token %}
     <div class="form-outline mb-4">
-        <label class="form-label">Name:</label>
+        <h1 class="text-center">Department</h1>
+        <label class="form-label mt-5">Name:</label>
         {{ form.name|attr:"class:form-control" }}
     </div>
 {% endblock %}
