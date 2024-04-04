@@ -2,6 +2,16 @@
 .navbar {
   position: fixed;
   z-index: 1000;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+
+@media (max-width: 991px) {
+    .navbar {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
 
 .navbar .nav-link:hover {
@@ -13,7 +23,7 @@
 }
 </style>
 
-<nav class="navbar navbar-expand-lg bg-primary-color w-100 section">
+<nav class="navbar navbar-expand-lg bg-primary-color w-100">
   <a style="font-weight: bold;" class="navbar-brand text-secondary-color" href="{% url 'home' %}">Django Staff</a>
   <button class="navbar-toggler text-secondary-color" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

@@ -1,36 +1,38 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <h1>Index</h1>
-    <h1> Hello {{ user.employee.name }}</h1>
-    <button>
-        <a href="{% url 'employee_list' %}">
-            Manage Employees
-        </a>
-    </button>
-    <button>
-        <a href="{% url 'department_list' %}">
-            Manage Departments
-        </a>
-    </button>
-    <button>
-        <a href="{% url 'overtime_record_list' %}">
-            Manage Overtime Records
-        </a>
-    </button>
-    <button>
-        <a href="{% url 'logout' %}">
-            LogOut
-        </a>
-    </button>
-    {% if user.employee.company %}
+    <div class="section-top">
+        <h1>Index</h1>
+        <h1> Hello {{ user.employee.name }}</h1>
         <button>
-            <a href="{% url 'company_update' user.employee.company.id %}">Edit Company</a>
+            <a href="{% url 'employee_list' %}">
+                Manage Employees
+            </a>
         </button>
-    {% else %}
         <button>
-            <a href="{% url 'company_create' %}">Create Company</a>
+            <a href="{% url 'department_list' %}">
+                Manage Departments
+            </a>
         </button>
-    {% endif %}
-    <p>Welcome to the index page!</p>
+        <button>
+            <a href="{% url 'overtime_record_list' %}">
+                Manage Overtime Records
+            </a>
+        </button>
+        <button>
+            <a href="{% url 'logout' %}">
+                LogOut
+            </a>
+        </button>
+        {% if user.employee.company %}
+            <button>
+                <a href="{% url 'company_update' user.employee.company.id %}">Edit Company</a>
+            </button>
+        {% else %}
+            <button>
+                <a href="{% url 'company_create' %}">Create Company</a>
+            </button>
+        {% endif %}
+        <p>Welcome to the index page!</p>
+    </div>
 {% endblock %}

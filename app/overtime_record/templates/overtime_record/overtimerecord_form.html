@@ -1,17 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'components/form.html' %}
+{% load widget_tweaks %}
 
-{% block main %}
-
-<form method="post">
+{% block form_fields %}
     {% csrf_token %}
-    {{ form }}
-    <button type="submit">Save</button>
-</form>
-
-<button>
-    <a href="{% url 'overtime_record_create' %}">
-        Add Overtime Record
-    </a>
-</button>
-
+    <div class="form-outline mb-4">
+        <label class="form-label">Reason:</label>
+        {{ form.reason|attr:"class:form-control" }}
+        <label class="form-label mt-4">Employee:</label>
+        {{ form.employee|attr:"class:form-control" }}
+        <label class="form-label mt-4">Hours:</label>
+        {{ form.hours|attr:"class:form-control" }}
+    </div>
 {% endblock %}

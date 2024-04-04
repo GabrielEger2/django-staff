@@ -3,15 +3,11 @@
 }
 
 .section {
-    padding-left: 4rem;
-    padding-right: 4rem;
-}
-
-@media (max-width: 991px) {
-    .section {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
 }
 
 .section-top {

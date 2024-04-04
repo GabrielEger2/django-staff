@@ -10,7 +10,11 @@
     <title>{% block title %} {%  endblock %}</title>
 </head>
 <body>
-    {% block main %} {% endblock %}
+    {% include 'components/header.html' %}
+    <main>
+        {% block main %} {% endblock %}
+    </main>
+    {% include 'components/footer.html' %}
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>
