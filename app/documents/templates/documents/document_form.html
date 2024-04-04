@@ -1,9 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'components/form.html' %}
+{% load widget_tweaks %}
 
-{% block main %}
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Save</button>
-    </form>
+{% block form_fields %}
+    {% csrf_token %}
+    <div class="form-outline mb-4">
+        <h1 class="text-center">Document</h1>
+        <label class="form-label mt-5">Name:</label>
+        {{ form.name|attr:"class:form-control" }}
+        <label class="form-label mt-5">Holder:</label>
+        {{ form.holder|attr:"class:form-control" }}
+        <label class="form-label mt-5">File:</label>
+        {{ form.file|attr:"class:form-control" }}
+    </div>
 {% endblock %}

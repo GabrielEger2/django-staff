@@ -4,7 +4,7 @@
     <div class="col-lg-6 mb-5 mb-lg-0 section">
         <div class="card">
             <div class="card-body py-5 px-md-5">
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% block form_fields %} {% endblock %}
                     <div class="d-flex justify-content-center pt-4">

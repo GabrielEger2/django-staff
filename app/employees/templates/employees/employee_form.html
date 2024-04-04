@@ -1,22 +1,27 @@
-{% extends 'base.html' %}
+{% extends 'components/form.html' %}
+{% load widget_tweaks %}
 
-{% block main %}
-
-<form method="post">
+{% block form_fields %}
     {% csrf_token %}
-    {{ form }}
-    <button type="submit">Save</button>
-</form>
+    <div class="form-outline mb-4">
+        <h1 class="text-center">Employee</h1>
+        <label class="form-label mt-5">Name:</label>
+        {{ form.name|attr:"class:form-control" }}
+        <label class="form-label mt-5">Department:</label>
+        {{ form.department|attr:"class:form-control" }}
+    </div>
 
-<button>
-    {{object}}
-</button>
-
-{% for document in object.document_set.all %}
-    <button>
-        <a href="{{ document.file.url }}">
-            {{ document }}
+    {% if object %}
+        <a href="{% url 'document_create' object.id %}" class="btn btn-success">
+            Adicionar documento
         </a>
-    </button>
-{% endfor %}
+    {% endif %}
+
+    {% for document in object.document_set.all %}
+        <button>
+            <a href="{{ document.file.url }}">
+                {{ document }}
+            </a>
+        </button>
+    {% endfor %}
 {% endblock %}
