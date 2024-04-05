@@ -3,27 +3,34 @@
 
 {% block form_fields %}
     {% csrf_token %}
-    <div class="form-outline mb-4">
-        <h1 class="text-center">Employee</h1>
-        <label class="form-label mt-5">Name:</label>
-        {{ form.name|attr:"class:form-control" }}
-        <label class="form-label mt-5">Department:</label>
-        {{ form.department|attr:"class:form-control" }}
-    </div>
-
-    {% if object %}
-        <div class="d-flex justify-content-center">
-            <a href="{% url 'document_create' object.id %}" class="btn btn-success">
-                Add Document
-            </a>
+    <div class="row">
+        {% if object %}
+            <div class="col-6 form-outline mb-4">
+        {% else %}
+            <div class="form-outline mb-4">
+        {% endif %}
+            <h1 class="text-center">Employee</h1>
+            <label class="form-label mt-5">Name:</label>
+            {{ form.name|attr:"class:form-control" }}
+            <label class="form-label mt-5">Department:</label>
+            {{ form.department|attr:"class:form-control" }}
         </div>
-    {% endif %}
-
-    {% for document in object.document_set.all %}
-        <button>
-            <a href="{{ document.file.url }}">
-                {{ document }}
-            </a>
-        </button>
-    {% endfor %}
+        {% if object %}
+            <div class="col-6">
+                <div class="d-flex justify-content-center">
+                    <a href="{% url 'document_create' object.id %}" class="btn btn-success">
+                        Add Document
+                    </a>
+                </div>
+                <div class="mt-4 text-center">
+                    <h2>Documents</h2>
+                    {% for document in object.document_set.all %}
+                        <a class="btn btn-primary mb-2" href="{{ document.file.url }}">
+                            {{ document }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}
