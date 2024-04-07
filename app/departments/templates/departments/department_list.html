@@ -1,33 +1,24 @@
-{% extends 'base.html' %}
+{% extends 'components/lists.html' %}
 
-{% block main %}
+{% block lists %}
     <h1>Department List</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Company</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for department in object_list %}
-                <tr>
-                    <td>{{ department.name }}</td>
-                    <td>{{ department.company }}</td>
-                    <td>
-                        <button>
-                            <a href="{% url 'department_update' department.id %}">Edit</a>
-                        </button>
-                        <button>
-                            <a href="{% url 'department_delete' department.id %}">Delete</a>
-                        </button>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-        <button>
-            <a href="{% url 'department_create' %}">Create Department</a>
-        </button>
-    </table>
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-success my-4" href="{% url 'department_create' %}">Create Department</a>
+    </div>
+    <div>
+        <ul class="list-group">
+        {% for department in object_list %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-column">
+                    <div class="fw-bold">{{ department.name }}</div>
+                    <div>{{ department.company }}</div>
+                </div>
+                <span class="p-4">
+                    <a class="btn btn-primary" href="{% url 'department_update' department.id %}">Edit</a>
+                    <a class="btn btn-danger" href="{% url 'department_delete' department.id %}">Delete</a>
+                </span>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
