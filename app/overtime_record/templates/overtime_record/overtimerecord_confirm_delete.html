@@ -1,18 +1,1 @@
-{% extends 'base.html' %}
-
-{% block main %}
-
-<h1>Confirm Delete</h1>
-
-<p>Are you sure you want to delete "{{ object }}"?</p>
-
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Yes</button>
-</form>
-
-<button>
-    <a href="{% url 'overtime_record_list' %}">Cancel</a>
-</button>
-
-{% endblock %}
+{% extends 'components/confirm_delete.html' %}
