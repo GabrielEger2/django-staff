@@ -5,7 +5,6 @@ from django.urls import reverse
 class OvertimeRecord(models.Model):
     reason = models.CharField(max_length=100)
     employee = models.ForeignKey(Employee, on_delete=models.PROTECT)
-    date = models.DateField()
     hours = models.DecimalField(max_digits=5, decimal_places=2)
 
     def get_absolute_url(self):
