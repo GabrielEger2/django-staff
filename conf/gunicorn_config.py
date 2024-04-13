@@ -1,8 +1,8 @@
 # gunicorn_config.py
 
-command = '/app/django-staff/venv/bin/gunicorn'
+command = 'gunicorn'
 pythonpath = '/app/django-staff'
-bind = '10.0.2.15:8000'
+bind = '0.0.0.0:8000'
 workers = 4
 
 # Additional parameters
