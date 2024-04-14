@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
     ports:
@@ -13,7 +13,7 @@ services:
 
   web-prod:
     build: .
-    command: gunicorn -c conf/gunicorn_config.py django_staff.wsgi
+    command: bash -c "python manage.py migrate && gunicorn -c conf/gunicorn_config.py django_staff.wsgi"
     volumes:
       - static_volume:/app/static
       - media_volume:/app/media
