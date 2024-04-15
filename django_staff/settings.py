@@ -3,13 +3,13 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 SECRET_KEY = 'django-insecure-as4)5xp1xtgm_%cdj@_b%&c+)*y_c#$j^!j$sr04&j_4py0wre'
 
 DEBUG = os.environ.get('DEBUG') == '1'
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['django-staff.gs-eger.com']
+CSRF_TRUSTED_ORIGINS = ['https://django-staff.gs-eger.com']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
