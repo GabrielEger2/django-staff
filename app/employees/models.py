@@ -13,5 +13,10 @@ class Employee(models.Model):
     def get_absolute_url(self):
         return reverse('employee_list')
     
+    @property
+    def total_overtime_record(self):
+        total = self.overtimerecord_set.all().aggregate(models.Sum('hours'))['hours__sum']
+        return total
+
     def __str__(self):
         return self.name

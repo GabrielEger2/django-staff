@@ -32,5 +32,20 @@
                 </div>
             </div>
         {% endif %}
+        {% if object %}
+        <div class="col-12">
+            <div class="mt-4 text-center">
+                <h2>Overtime Records</h2>
+                <ul>
+                    {% for record in object.overtimerecord_set.all %}
+                    <li>
+                        {{ record.reason }} | {{ record.hours }} Hours
+                    </li>
+                    {% endfor %}
+                </ul>
+                <h5>Total Overtime Records: {{object.total_overtime_record}} Hours</h5>
+            </div>
+        </div>
+    {% endif %}
     </div>
 {% endblock %}

@@ -11,7 +11,7 @@
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div class="d-flex flex-column">
                     <div class="fw-bold">{{ overtime_record.name }}</div>
-                    <div>{{ overtime_record.date }} - {{ overtime_record.hours }}</div>
+                    <div>{{ overtime_record.hours }}</div>
                 </div>
                 <span class="p-4">
                     <a class="btn btn-primary" href="{% url 'overtime_record_update' overtime_record.id %}">Edit</a>
