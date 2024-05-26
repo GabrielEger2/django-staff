@@ -1,9 +1,10 @@
 {% extends 'components/lists.html' %}
 
 {% block lists %}
-    <h1>Department List</h1>
-    <div class="d-flex justify-content-center">
-        <a class="btn btn-success my-4" href="{% url 'department_create' %}">Create Department</a>
+    <h1 class="text-center">Department List</h1>
+    <div class="d-flex p-4 justify-content-between">
+        <a class="btn btn-success mx-1" href="{% url 'department_create' %}">Create Department</a>
+        <a class="btn btn-primary mx-1" href="{% url 'department_export_csv' %}">Export CSV</a>
     </div>
     <div>
         <ul class="list-group">

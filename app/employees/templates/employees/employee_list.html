@@ -1,9 +1,10 @@
 {% extends 'components/lists.html' %}
 
 {% block lists %}
-    <h1>Employee List</h1>
-    <div class="d-flex justify-content-center">
-        <a class="btn btn-success my-4" href="{% url 'employee_create' %}">Create Employee</a>
+    <h1 class="text-center">Employee List</h1>
+    <div class="d-flex p-4 justify-content-between">
+        <a class="btn btn-success mx-1" href="{% url 'employee_create' %}">Create Employee</a>
+        <a class="btn btn-primary mx-1" href="{% url 'employee_export_csv' %}">Export CSV</a>
     </div>
     <div>
         <ul class="list-group">

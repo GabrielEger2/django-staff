@@ -1,5 +1,7 @@
+import csv
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView
 from .models import Employee, User
+from django.http import HttpResponse
 
 class EmployeeList(ListView):
     model = Employee
@@ -25,3 +27,18 @@ class EmployeeUpdate(UpdateView):
 class EmployeeDelete(DeleteView):
     model = Employee
     success_url = '/employees/'
+
+class ExportCSV(ListView):
+    model = Employee
+
+    def get(self, request, *args, **kwargs):
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="employees.csv"'
+
+        writer = csv.writer(response)
+        writer.writerow(['User', 'Name', 'Company'])
+
+        for obj in Employee.objects.filter(company=self.request.user.employee.company):
+            writer.writerow([obj.user, obj.name, obj.company])
+
+        return response
